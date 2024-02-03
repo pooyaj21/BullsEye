@@ -7,34 +7,34 @@ import android.widget.LinearLayout
 import androidx.navigation.findNavController
 import com.example.bullseye.R
 import com.example.bullseye.Screen
-import com.example.bullseye.ui.components.MenuButton
+import com.example.bullseye.ui.components.MenuTextButton
 import com.example.bullseye.util.dpToPx
 import com.example.bullseye.values.StringProvider
 
 class MainView(context: Context) : LinearLayout(context) {
 
-    private val newGameButton = MenuButton(context).apply {
+    private val newGameButton = MenuTextButton(context).apply {
         text = StringProvider.MainMenu.newSingle
         textAlignment = TEXT_ALIGNMENT_CENTER
         setOnClickListener {
             findNavController().navigate(R.id.gameFragment)
         }
     }
-    private val loadGameButton = MenuButton(context).apply {
+    private val loadGameButton = MenuTextButton(context).apply {
         text = StringProvider.MainMenu.loadGame
         textAlignment = TEXT_ALIGNMENT_CENTER
         setOnClickListener {
             findNavController().navigate(R.id.gameFragment)
         }
     }
-    private val multiPlayButton = MenuButton(context).apply {
+    private val multiPlayButton = MenuTextButton(context).apply {
         text = StringProvider.MainMenu.newMulti
         textAlignment = TEXT_ALIGNMENT_CENTER
         setOnClickListener {
             findNavController().navigate(R.id.multiplyFragment)
         }
     }
-    private val aboutGameButton = MenuButton(context).apply {
+    private val aboutGameButton = MenuTextButton(context).apply {
         text = StringProvider.MainMenu.about
         textAlignment = TEXT_ALIGNMENT_CENTER
         setOnClickListener {

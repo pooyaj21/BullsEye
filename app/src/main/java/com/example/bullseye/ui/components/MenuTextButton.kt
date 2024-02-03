@@ -3,9 +3,10 @@ package com.example.bullseye.ui.components
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatTextView
+import com.example.bullseye.util.dpToPx
 
-class MenuButton(context: Context) : AppCompatButton(context) {
+class MenuTextButton(context: Context) : AppCompatTextView(context) {
 
     init {
         background = GradientDrawable().apply {
@@ -15,5 +16,6 @@ class MenuButton(context: Context) : AppCompatButton(context) {
         }
         textAlignment = TEXT_ALIGNMENT_CENTER
         setTextColor(Color.WHITE)
+        setPadding(0, 10.dpToPx, 0, 10.dpToPx)
     }
 }

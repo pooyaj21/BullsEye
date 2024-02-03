@@ -34,4 +34,10 @@ object StringProvider {
             </body>
             </html>
             """
+
+    object MultiPlayer{
+        const val round = "Round:"
+        const val player = "Player"
+    }
+
 }
