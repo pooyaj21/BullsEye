@@ -48,4 +48,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'io.insert-koin:koin-android:3.4.3'
 }

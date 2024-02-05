@@ -36,8 +36,16 @@ object StringProvider {
             """
 
     object MultiPlayer{
-        const val round = "Round:"
+        const val round = "Round: "
         const val player = "Player"
     }
 
+    object Game{
+        const val prompt = "Put the Bull's Eye as close as you can to: "
+        const val minimumValue = "0"
+        const val maximumValue = "100"
+        const val button = "Hit Me!"
+        const val Score = "Score: "
+        const val round = "Round: "
+    }
 }
