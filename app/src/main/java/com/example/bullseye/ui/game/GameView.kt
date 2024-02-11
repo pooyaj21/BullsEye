@@ -99,11 +99,11 @@ class GameView(
         id = generateViewId()
         setIcon(
             ContextCompat.getDrawable(
-                context, R.drawable.add_person
+                context, R.drawable.info_button
             )
         )
         setOnClickListener {
-
+            findNavController().navigate(R.id.resultFragment)
         }
     }
     private val hintsLine = LinearLayout(context).apply {
@@ -182,9 +182,9 @@ class GameView(
             if (currentPlayer == players.size - 1) {
                 currentRound = 1
                 scoreTextView
-                players[currentPlayer].point = 0
-                onResetGame()
                 findNavController().navigateUp()
+                findNavController().navigate(R.id.resultFragment)
+                onResetGame()
             } else {
                 currentPlayer++
                 currentRound = 1

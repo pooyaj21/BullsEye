@@ -23,4 +23,9 @@
         android:id="@+id/multiplyFragment"
         android:name="com.example.bullseye.ui.multiPlayerMenu.MultiPlayerMenuFragment"
         android:label="MultiPlayFragment" />
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.bullseye.ui.result.ResultFragment"
+        android:label="ResultFragment" />
 </navigation>

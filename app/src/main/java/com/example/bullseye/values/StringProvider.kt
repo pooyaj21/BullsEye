@@ -49,4 +49,10 @@ object StringProvider {
         const val round = "Round: "
         const val player = "Player: "
     }
+
+    object Result{
+        const val prompt = "Your Result"
+        const val player = "Player"
+        const val score = "Score"
+    }
 }

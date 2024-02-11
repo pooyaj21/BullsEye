@@ -32,7 +32,7 @@ class MainViewFragment : Fragment() {
                         50,
                         1,
                         0,
-                        GameType(listOf(Player("", 0)), 99)
+                        GameType(listOf(Player("You", 0)), 99)
                     )
                 )
                 findNavController().navigate(R.id.gameFragment)
