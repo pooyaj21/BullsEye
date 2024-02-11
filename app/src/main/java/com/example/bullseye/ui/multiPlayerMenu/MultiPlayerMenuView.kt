@@ -1,5 +1,6 @@
 package com.example.bullseye.ui.multiPlayerMenu
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -12,14 +13,19 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.constraintlayout.widget.ConstraintSet.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.forEach
 import androidx.navigation.findNavController
 import com.example.bullseye.R
 import com.example.bullseye.Screen
+import com.example.bullseye.model.GameType
+import com.example.bullseye.model.Player
 import com.example.bullseye.ui.components.MenuIconButton
 import com.example.bullseye.util.dpToPx
 import com.example.bullseye.values.StringProvider
 
-class MultiPlayerMenuView(context: Context) : ConstraintLayout(context) {
+@SuppressLint("ViewConstructor")
+class MultiPlayerMenuView(context: Context, onGameStart: (GameType) -> Unit) :
+    ConstraintLayout(context) {
 
     private val centerView = LinearLayout(context).apply {
         id = generateViewId()
@@ -70,12 +76,13 @@ class MultiPlayerMenuView(context: Context) : ConstraintLayout(context) {
             )
         )
         setOnClickListener {
+            onGameStart(GameType(getPlayerNames().map { Player(it, 0) }, roundNumberPicker.value))
             findNavController().navigate(R.id.gameFragment)
         }
     }
 
     private val centerViewWidth = Screen.widthPixels / 3
-    private var playerCount = 1
+    private var playerCount: Int = 1
 
     init {
         addView(plusButton, LayoutParams(50.dpToPx, 50.dpToPx))
@@ -151,5 +158,17 @@ class MultiPlayerMenuView(context: Context) : ConstraintLayout(context) {
             centerView.removeViewAt(childCount - 2)
             playerCount--
         }
+    }
+
+    private fun getPlayerNames(): List<String> {
+        val playerNames = mutableListOf<String>()
+        centerView.forEach { view ->
+            if (view is TextView) {
+                val playerName =
+                    view.text.toString().removePrefix(StringProvider.MultiPlayer.player)
+                playerNames.add(playerName)
+            }
+        }
+        return playerNames
     }
 }

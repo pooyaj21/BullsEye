@@ -45,7 +45,8 @@ object StringProvider {
         const val minimumValue = "0"
         const val maximumValue = "100"
         const val button = "Hit Me!"
-        const val Score = "Score: "
+        const val score = "Score: "
         const val round = "Round: "
+        const val player = "Player: "
     }
 }
